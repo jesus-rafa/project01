@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Panel: Reporte de Ingresos</title>
+</head>
+<script>
+
+    function resizeIFrameToFitContent(iFrame) {
+
+        var reportContainer = document.getElementById('reportContainer');
+
+        iFrame.width = reportContainer.clientWidth;
+        iFrame.height = reportContainer.clientHeight;
+
+        console.log("hi");
+
+    }
+
+    window.addEventListener('DOMContentLoaded', function (e)
+    {
+        var iframes = document.querySelectorAll("iframe");
+        for (var i = 0; i < iframes.length; i++) {
+            resizeIFrameToFitContent(iframes[i]);
+            iframes[i].attributes.removeNamedItem("style");
+        }
+        });
+
+</script>
+
+<style>
+    #reportContainer {
+        min-height: 800px;
+        min-width: 1330px;
+    }
+</style>
+<body>
+	<div id="reportContainer">
+        <iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=49b9d783-b45a-40a1-9941-d84daf61b6cc&autoAuth=true&ctid=628c0e77-5b55-44df-8be1-eca3b37b9cd0&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWNlbnRyYWwtdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D&navContentPaneEnabled=false" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+    <ul>
+        <li><a href="{% url 'users_app:user-logout' %}">Cerrar Sesion</li>
+    </ul>
+</body>
+</html> 
